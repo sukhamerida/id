@@ -1,0 +1,31 @@
+{{ $scripts := .Scratch.Get "jsScripts" }}
+{{ $bundle := .Scratch.Get "jsBundle" }}
+{{ $mode := .Scratch.Get "jsMode" | default "defer" }}
+
+{{ if or (eq $bundle nil) (eq hugo.Environment "development") }}
+  {{ range $scripts }}
+    {{ if findRE "^https?://" . 1 }}
+      <script {{ $mode | safeHTMLAttr }} src="{{ . }}"></script>
+    {{ else }}
+      {{ $script := resources.Get . }}
+      <script {{ $mode | safeHTMLAttr }}
+              src="{{ $script.Permalink }}"></script>
+    {{ end }}
+  {{ end }}
+{{ else }}
+  {{ if gt (len $scripts) 0 }}
+    {{ $res := slice }}
+
+    {{ range $scripts }}
+      {{ $res = $res | append (resources.Get .) }}
+    {{ end }}
+
+    {{ $script := resources.Concat $bundle $res | minify }}
+    <script {{ $mode | safeHTMLAttr }} src="{{ $script.Permalink }}"></script>
+  {{ end }}
+{{ end }}
+
+{{ .Scratch.Delete "jsScripts" }}
+{{ .Scratch.Delete "jsBundle" }}
+{{ .Scratch.Delete "jsMode" }}
+

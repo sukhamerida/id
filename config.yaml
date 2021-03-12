@@ -1,0 +1,72 @@
+baseURL: https://id.sukhamerida.com/
+title: Sukha Mérida
+params:
+  name: Sukha Mérida
+  titleSeparator: "-"
+  copyright: Sukha Mérida 2021
+  author:
+    type: Organization
+    name: Sukha Mérida
+    email: info@sukhamerida.com
+    website: https://sukhamerida.com/
+  image: /favicon-512x512.png
+  ampImage: /icon-206x60.png
+  googleTagManager: GTM-KPMRMK7
+  #disqus: sukhamerida-id
+  interledger: "$ilp.uphold.com/YM4XLxrdPh44"
+defaultContentLanguage: es
+defaultContentLanguageInSubdir: true
+languages:
+  es:
+    languageName: Español
+    params:
+      title: Cuentas
+      description: Accede a tu cuenta de Sukha Mérida, o si aún no eres un Sukha Lover, puedes registrarte y unirte a nuestra familia.
+  en:
+    languageName: English
+    params:
+      title: Accounts
+      description: Log in into your Sukha Mérida account, if you are not a Sukha Lover yet, just sign up and be part of our family.
+taxonomies: []
+theme: []
+enableEmoji: true
+markup:
+  highlight:
+    codeFences: true
+    hl_Lines: ""
+    lineNoStart: 1
+    lineNos: false
+    lineNumbersInTable: true
+    noClasses: false
+    tabWidth: 2
+  tableOfContents:
+    startLevel: 1
+    endLevel: 6
+  goldmark:
+    attribute:
+      block: true
+      title: true
+    renderer:
+      unsafe: true
+enableRobotsTXT: true
+ignoreErrors: 
+  - error-remote-getjson
+enableGitInfo: true
+minify: true
+server:
+  headers:
+    - for: /**
+      values:
+        Cache-Control: no-cache, no-store
+        X-Content-Type-Options: nosniff
+        Referrer-Policy: strict-origin-when-cross-origin
+    - for: /**/
+      values:
+        X-XSS-Protection: 1; mode=block
+    - for: /*.html
+      values:
+        X-XSS-Protection: 1; mode=block
+    - for: /*.webmanifest
+      values:
+        Content-Type: application/manifest+json; charset=utf-8
+

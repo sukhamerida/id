@@ -1,0 +1,5 @@
+assets/vendor/**/* binary
+node_modules/**/* binary
+resources/**/* binary
+yarn.lock binary
+

@@ -1,0 +1,26 @@
+<a
+  {{ if strings.HasPrefix .Destination "./" }}
+    {{ $url := urls.Parse .Destination }}
+    {{ $slug := path.Join .Page.File.Dir $url.Path }}
+
+    {{ with .Page.Site.GetPage $slug }}
+      href="{{ .Permalink | safeURL }}
+            {{- with $url.RawQuery }}?{{ . | safeURL }}{{ end -}}
+            {{- with $url.Fragment }}#{{ . | safeURL }}{{ end -}}
+           "
+      title="{{ .Title }}{{ with .Description }} - {{ . }}{{ end }}"
+    {{ else }}
+      {{ warnf "Invalid link reference '%s' in content/%s" .Destination .Page.File }}
+      href="{{ .Destination | safeURL }}"
+    {{ end }}
+  {{ else }}
+    href="{{ .Destination | safeURL }}"
+
+    {{ if findRE "^https?://" .Destination 1 }}
+      target="_blank"
+      rel="noopener noreferrer"
+    {{ end }}
+
+    {{ with .Title}} title="{{ . }}"{{ end }}
+  {{ end }}
+>{{ markdownify .Text }}</a>

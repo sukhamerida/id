@@ -1,0 +1,99 @@
+[CONFIRM_PASSWORD]
+other = "Confirm password"
+
+[EMAIL]
+other = "Email"
+
+[FB_AUTH_EMAIL_ALREADY_IN_USE]
+other = "Looks like you are a Sukha Lover already ❤️ try recovering your password if you can't access your account"
+
+[FB_AUTH_NETWORK_REQUEST_FAILED]
+other = "We couldn't connect to our servers 😞 check your internet connection or just try again later"
+
+[FB_AUTH_REQUIRES_RECENT_LOGIN]
+other = "Sorry, for your security, you have to log in again to do this kind of actions 😅"
+
+[FB_AUTH_USER_NOT_FOUND]
+other = "That email doesn't exists on our systems 😅 maybe you want to sign up"
+
+[FB_AUTH_WEAK_PASSWORD]
+other = "The given password is too weak, try with something longer (more than 6 characters) or harder"
+
+[FB_AUTH_WRONG_PASSWORD]
+other = "Wrong password 🙅 try again (or recover your password)"
+
+[JAVASCRIPT_IS_DISABLED]
+other = "JavaScript is required for this website to work properly, please enable it"
+
+[LOGIN]
+other = "Log in"
+
+[LOGIN_BUTTON]
+other = "Log in"
+
+[LOGIN_LINK]
+other = "I have an account already"
+
+[LOGIN_SUCCESS]
+other = "Yay! 🎉 you log in, wait until we redirect you"
+
+[LOGOUT]
+other = "Log out"
+
+[NEW_PASSWORD]
+other = "Change my password"
+
+[NEW_PASSWORD_BUTTON]
+other = "Change password"
+
+[NEW_PASSWORD_LINK]
+other = "I want to change my password"
+
+[NEW_PASSWORD_SUCCESS]
+other = "Good! 👍 You have a new password"
+
+[OTHER_OPTIONS_LINK]
+other = "Show me more options"
+
+[PASSWORD]
+other = "Password"
+
+[RECOVER]
+other = "Reset your password"
+
+[RECOVER_BUTTON]
+other = "Send email"
+
+[RECOVER_LINK]
+other = "I don't remember my password"
+
+[RECOVER_SUCCESS]
+other = "There you go, check your email and see how you can reset your password. We are here for you ❤️"
+
+[SIGNUP]
+other = "Sign up"
+
+[SIGNUP_BUTTON]
+other = "Sign up"
+
+[SIGNUP_LINK]
+other = "I don't have an account"
+
+[SIGNUP_SUCCESS]
+other = "Yay! 🎉 You are now a Sukha Lover! ❤️ We will email you with a confirmation link"
+
+[VERIFY]
+other = "Verify email"
+
+[VERIFY_BUTTON]
+other = "Send email"
+
+[VERIFY_LINK]
+other = "My email is not verified"
+
+[VERIFY_SUCCESS]
+other = "There you go, check your email and see how you can verify your email. We are here for you ❤️"
+
+[WRONG_PASSWORD_CONFIRM]
+other = "The confirmation password doesn't match"
+

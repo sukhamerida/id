@@ -1,0 +1,13 @@
+{{ $url := .Scratch.Get "gruName" | default "" }}
+
+{{ if eq $url "" }}
+{{ else if hasPrefix $url "/" }}
+  {{ $url = absURL $url }}
+{{ else if not (findRE "^https?://" $url 1) }}
+  {{ $url = path.Join .RelPermalink $url | absURL }}
+{{ end }}
+
+{{ .Scratch.Delete "gruName" }}
+
+{{ return $url }}
+

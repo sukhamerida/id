@@ -1,0 +1,99 @@
+[CONFIRM_PASSWORD]
+other = "Confirma contraseña"
+
+[EMAIL]
+other = "Correo electrónico"
+
+[FB_AUTH_EMAIL_ALREADY_IN_USE]
+other = "Parece que ya eres un Sukha Lover ❤️ intenta recuperar tu contraseña si no puedes acceder a tu cuenta"
+
+[FB_AUTH_NETWORK_REQUEST_FAILED]
+other = "No pudimos conectarnos con nuestros servidores 😞 verifica tu conexión a internet o simplemente vuelve a intentarlo más tarde"
+
+[FB_AUTH_REQUIRES_RECENT_LOGIN]
+other = "Perdón, pero por seguridad tienes que iniciar sesión de nuevo para poder hacer este tipo de acciones 😅"
+
+[FB_AUTH_USER_NOT_FOUND]
+other = "Ese correo no existe en nuestros sistemas 😅 tal vez quieras registrarte"
+
+[FB_AUTH_WEAK_PASSWORD]
+other = "La contraseña es muy debil, inténta con alguna más larga (más de 6 caracteres) o más difícil"
+
+[FB_AUTH_WRONG_PASSWORD]
+other = "Contraseña equivocada 🙅 vuelve a intentarlo (o recupera tu contraseña)"
+
+[JAVASCRIPT_IS_DISABLED]
+other = "Se necesita JavaScript para que este sitio web funcione correctamente, por favor actívalo"
+
+[LOGIN]
+other = "Inicia sesión"
+
+[LOGIN_BUTTON]
+other = "Iniciar sesión"
+
+[LOGIN_LINK]
+other = "Ya tengo una cuenta"
+
+[LOGIN_SUCCESS]
+other = "¡Genial! 🎉 accediste a tu cuenta, espera mientras te redireccionamos"
+
+[LOGOUT]
+other = "Salir de mi cuenta"
+
+[NEW_PASSWORD]
+other = "Cambiar mi contraseña"
+
+[NEW_PASSWORD_BUTTON]
+other = "Cambiar contraseña"
+
+[NEW_PASSWORD_LINK]
+other = "Quiero cambiar mi contraseña"
+
+[NEW_PASSWORD_SUCCESS]
+other = "¡Bien! 👍 Tienes contraseña nueva"
+
+[OTHER_OPTIONS_LINK]
+other = "Muéstrame más opciones"
+
+[PASSWORD]
+other = "Contraseña"
+
+[RECOVER]
+other = "Reinicia tu contraseña"
+
+[RECOVER_BUTTON]
+other = "Enviar correo"
+
+[RECOVER_LINK]
+other = "No recuerdo mi contraseña"
+
+[RECOVER_SUCCESS]
+other = "Ya casi terminamos, revisa tu correo electrónico y sigue las intrucciones para reinciar tu contraseña. Estamos aquí para ti ❤️"
+
+[SIGNUP]
+other = "Resgístrate"
+
+[SIGNUP_BUTTON]
+other = "Crear cuenta"
+
+[SIGNUP_LINK]
+other = "No tengo una cuenta"
+
+[SIGNUP_SUCCESS]
+other = "¡Genial! 🎉 ¡Ahora eres Sukha Lover! ❤️ Te enviaremos un enlace de confirmación por correo electrónico"
+
+[VERIFY]
+other = "Verificar mi correo"
+
+[VERIFY_BUTTON]
+other = "Enviar correo"
+
+[VERIFY_LINK]
+other = "Mi correo electrónico no está verificado"
+
+[VERIFY_SUCCESS]
+other = "Ya casi terminamos, revisa tu correo electrónico y sigue las intrucciones para verificar tu correo electrónico. Estamos aquí para ti ❤️"
+
+[WRONG_PASSWORD_CONFIRM]
+other = "La contraseña de confirmación no coincide"
+

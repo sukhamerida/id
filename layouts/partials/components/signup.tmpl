@@ -1,0 +1,60 @@
+<div x-data="signupState()" x-show="$store.app.action === 'signup'">
+  <form @submit.prevent="submit()">
+    <div class="field">
+      <label class="label">{{ i18n "EMAIL" }}:</label>
+
+      <div class="control is-expanded">
+        <input class="input" type="email" name="email" required
+               placeholder="{{ i18n "EMAIL" }}"
+               x-model="$store.app.user.email"/>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">{{ i18n "PASSWORD" }}:</label>
+
+      <div class="control">
+        <input class="input" type="password" name="password" required
+               placeholder="{{ i18n "PASSWORD" }}" x-model="password"/>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">{{ i18n "CONFIRM_PASSWORD" }}:</label>
+
+      <div class="control">
+        <input class="input" type="password" name="confirmPassword"
+               placeholder="{{ i18n "CONFIRM_PASSWORD" }}"
+               x-model="confirmPassword"/>
+      </div>
+    </div>
+
+    <div class="notification" :class="notification.classes"
+         x-show.transition="notification.isOpen">
+      <button type="button" class="delete"
+              @click="notification.close()"></button>
+
+      <div class="notification-body" x-text="notification.message"></div>
+    </div>
+
+    <div class="field has-text-right">
+      <p class="help">
+        <a href="#" @click.prevent="$store.app.action = 'login'">
+          {{ i18n "LOGIN_LINK" }}
+      </p>
+
+      <p class="help">
+        <a href="#" @click.prevent="$store.app.action = ''">
+          {{ i18n "OTHER_OPTIONS_LINK" }}
+        </a>
+      </p>
+    </div>
+
+    <div class="field is-grouped is-grouped-centered">
+      <button type="submit" class="button is-primary"
+              :class="{ 'is-loading': !done }" :disabled="!done">
+        {{ i18n "SIGNUP_BUTTON" }}
+      </button>
+    </div>
+  </form>
+</div>

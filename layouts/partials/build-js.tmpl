@@ -1,0 +1,22 @@
+{{ $src := .Scratch.Get "jsSrc" }}
+{{ $output := .Scratch.Get "jsOutput" | default $src }}
+{{ $opts := .Scratch.Get "jsOptions" | default dict }}
+
+{{ $jsOpts := dict "targetPath" $output }}
+{{ $jsOpts = merge $jsOpts (dict "target" "es2017") }}
+{{ $jsOpts = merge $jsOpts (dict "format" "iife") }}
+{{ $jsOpts = merge $jsOpts (dict "externals" (slice)) }}
+{{ $jsOpts = merge $jsOpts (dict "defines" (dict)) }}
+
+{{ if ne hugo.Environment "development" }}
+  {{ $jsOpts = merge $jsOpts (dict "minify" true) }}
+{{ end }}
+
+{{ $jsOpts = merge $jsOpts $opts }}
+
+{{ .Scratch.Delete "jsSrc" }}
+{{ .Scratch.Delete "jsOutput" }}
+{{ .Scratch.Delete "jsOptions" }}
+
+{{ return (resources.Get $src | js.Build $jsOpts) }}
+

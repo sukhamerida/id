@@ -1,0 +1,77 @@
+@charset "utf-8";
+
+$body-family: sans-serif;
+$primary: #a3bf76;
+$link: #556854;
+$body-background-color: #fff;
+
+@import "bulma/sass/utilities/_all.sass";
+@import "bulma/sass/base/_all.sass";
+@import "bulma/sass/helpers/typography.sass";
+@import "bulma/sass/layout/hero.sass";
+@import "bulma/sass/elements/container.sass";
+
+// Header
+
+.page-header {
+  margin-bottom: 1em;
+}
+
+.page-header img {
+  width: 15em;
+  max-width: 80vw;
+}
+
+// Main
+
+$box-shadow: 0 0.5em 1em -0.125em rgba($scheme-invert, 0.2), 0 0px 0 1px rgba($scheme-invert, 0.02);
+
+@import "bulma/sass/elements/box.sass";
+@import "bulma/sass/form/shared.sass";
+@import "bulma/sass/form/input-textarea.sass";
+@import "bulma/sass/form/tools.sass";
+@import "bulma/sass/elements/button.sass";
+@import "bulma/sass/elements/notification.sass";
+
+.page-body {
+  max-width: 25em;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.noscript-notification {
+  margin-bottom: 1em;
+}
+
+.access-buttons .button {
+  margin-bottom: 1em;
+}
+
+.access-buttons .button:last-of-type {
+  margin-bottom: 0em;
+}
+
+/* Footer */
+
+.page-footer {
+  font-size: 0.6em;
+  opacity: 0.7;
+}
+
+/* Privacy alert */
+
+@import "bulma/sass/elements/other.sass";
+@import "bulma/sass/components/message.sass";
+@import "bulma/sass/helpers/other.sass";
+
+.privacy-alert {
+  width: 100%;
+
+  margin-bottom: 0em !important;
+
+  position: fixed;
+  left: 0%;
+  bottom: 0%;
+}
+

@@ -1,0 +1,25 @@
+{{ $author := .Site.Params.author }}
+{{ $description := $.Param "description" }}
+{{ $publishdate := .PublishDate.Format "2006-01-02T15:04:05-07:00" }}
+{{ $date := .Date.Format "2006-01-02T15:04:05-07:00" }}
+
+{{ .Scratch.Set "gruName" ($.Param "image") }}
+{{ $image := partial "get-res-url.tmpl" . }}
+
+<link rel="canonical" href="{{ .Permalink }}"/>
+<meta name="robots" content="index, follow"/>
+
+<meta name="author" content="{{ $author.name }}"/>
+<link rel="author" href="{{ $author.website }}"/>
+<meta name="description" content="{{ $description }}"/>
+<meta name="image" content="{{ $image }}"/>
+
+<!-- Open Graph -->
+
+<meta property="og:url" content="{{ .Permalink }}"/>
+<meta property="og:site_name" content="{{ .Site.Params.name }}"/>
+<meta property="og:title" content="{{ $.Param "title" }}"/>
+<meta property="og:description" content="{{ $description }}"/>
+<meta property="og:image" content="{{ $image }}"/>
+<meta property="og:type" content="website"/>
+

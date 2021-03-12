@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="{{ .Site.Language | default "en" }}">
+<head>
+  {{ if ne hugo.Environment "development" }}
+    {{ with .Site.Params.googleTagManager }}
+      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','{{ . }}');</script>
+    {{ end }}
+  {{ end }}
+
+  <meta charset="utf-8"/>
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+
+  {{ range .Translations }}
+    <link rel="alternate" hreflang="{{ .Language.Lang }}"
+          href="{{ .Permalink | safeURL }}"/>
+  {{ end }}
+
+  {{ range .AlternativeOutputFormats }}
+    <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}"
+          href="{{ .Permalink | safeURL }}"/>
+  {{ end }}
+
+  {{ block "head-metadata" . }}
+    {{ partial "metadata.tmpl" . }}
+    {{ partial "app.tmpl" . }}
+    {{ hugo.Generator }}
+  {{ end }}
+
+  {{ with .Site.Params.interledger }}
+    <meta name="monetization" content="{{ . }}">
+  {{ end }}
+
+  <title>
+    {{ $.Param "title" }}
+    {{ .Site.Params.titleSeparator }}
+    {{ .Site.Params.name }}
+  </title>
+
+  {{ .Scratch.Set "cssSrc" "sass/main.scss" }}
+  {{ .Scratch.Set "cssOutput" "css/main.css" }}
+  {{ $sheet := partial "build-css.tmpl" . }}
+  <link rel="stylesheet" type="text/css" href="{{ $sheet.Permalink }}"/>
+
+  {{ $i18nFile := printf "i18n/%s.toml" .Site.Language }}
+
+  {{ if fileExists $i18nFile }}
+    {{ $i18n := $i18nFile | readFile | unmarshal }}
+
+    <script>
+      window.hi18nData = {{ $i18n }}
+
+      window.hi18n = (key) => {
+        const val = window.hi18nData[key]
+
+        if (val === undefined) {
+          const lang = {{ .Site.Language.Lang }}
+
+          console.warn(`i18n|MISSING_TRANSLATION|${lang}|${key}`)
+
+          return ''
+        }
+
+        return val.other
+      }
+    </script>
+  {{ end }}
+
+  {{ .Scratch.Set "jsSrc" "js/main.js" }}
+  {{ $script := partial "build-js.tmpl" . }}
+  <script defer src="{{ $script.Permalink }}"></script>
+</head>
+<body>
+  {{ if ne hugo.Environment "development" }}
+    {{ with .Site.Params.googleTagManager }}
+      <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id={{ . }}"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe>
+      </noscript>
+    {{ end }}
+  {{ end }}
+
+  {{ block "body" . }}
+    <section class="hero is-fullheight">
+      <div class="hero-body">
+        <div class="container">
+          <header class="page-header has-text-centered">
+            <img src="/uploads/site-image.png"
+                 alt="{{ .Site.Params.name }}"/>
+          </header>
+
+          <main class="page-body box">
+            <noscript>
+              <div class="notification noscript-notification is-warning">
+                <p class="notification-body">
+                  {{ i18n "JAVASCRIPT_IS_DISABLED" }}.
+                </p>
+              </div>
+            </noscript>
+
+            {{ block "main" . }}{{ end }}
+          </main>
+
+          <footer class="page-footer has-text-centered">
+            <div>
+              Powered by
+              <a href="https://gohugo.io">Hugo</a>,
+              <a href="https://bulma.io">Bulma</a>,
+              <a href="https://netlify.com/">Netlify</a>
+            </div>
+
+            <div class="copyright">
+              Copyright &copy; {{ .Site.Params.copyright }}
+            </div>
+
+            <div class="devs">
+              <a target="_blank" rel="noopener noreferrer"
+                 href="https://ntrrg.dev">@ntrrg</a>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </section>
+  {{ end }}
+
+  {{ partial "privacy.tmpl" . }}
+
+  {{ $scripts := slice }}
+  {{ $scripts = $scripts | append "vendor/firebase-8.2.10/firebase-app.js" }}
+  {{ $scripts = $scripts | append "vendor/firebase-8.2.10/firebase-auth.js" }}
+  {{ .Scratch.Set "jsScripts" $scripts }}
+  {{ .Scratch.Set "jsBundle" "vendor/firebase-8.2.10/firebase.js" }}
+  {{ partial "import-js.tmpl" . }}
+</body>
+</html>
+

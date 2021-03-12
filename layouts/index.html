@@ -1,0 +1,55 @@
+{{ define "main" }}
+  <div class="access-buttons" x-data="homeState()" x-show="!$store.app.action">
+    <div class="notification" :class="notification.classes"
+         x-show.transition="notification.isOpen">
+      <button type="button" class="delete"
+              @click="notification.close()"></button>
+
+      <div class="notification-body" x-text="notification.message"></div>
+    </div>
+
+    <template x-if="!$store.app.user.active">
+      <a class="button is-fullwidth" href="#"
+         @click.prevent="$store.app.action = 'login'">
+        {{ i18n "LOGIN" }}</a>
+    </template>
+
+    <template x-if="!$store.app.user.active">
+      <a class="button is-fullwidth" href="#"
+         @click.prevent="$store.app.action = 'signup'">
+        {{ i18n "SIGNUP" }}</a>
+    </template>
+
+    <template x-if="!$store.app.user.active">
+      <a class="button is-fullwidth" href="#"
+         @click.prevent="$store.app.action = 'recover'">
+        {{ i18n "RECOVER" }}</a>
+    </template>
+
+    <template x-if="$store.app.user.active">
+      <a class="button is-fullwidth" href="#"
+         @click.prevent="$store.app.action = 'new-password'">
+        {{ i18n "NEW_PASSWORD" }}</a>
+    </template>
+
+    <template x-if="$store.app.user.active && !$store.app.user.emailVerified">
+      <a class="button is-fullwidth" href="#"
+         :class="{ 'is-loading': verifiying }" :disabled="verifiying"
+         @click.prevent="verifyEmail()">
+        {{ i18n "VERIFY" }}</a>
+    </template>
+
+    <template x-if="$store.app.user.active">
+      <a class="button is-fullwidth" href="#"
+         :class="{ 'is-loading': logingOut }" :disabled="logingOut"
+         @click.prevent="logout()">
+        {{ i18n "LOGOUT" }}</a>
+    </template>
+  </div>
+
+  {{ partial "components/login.tmpl" . }}
+  {{ partial "components/signup.tmpl" . }}
+  {{ partial "components/recover.tmpl" . }}
+  {{ partial "components/new-password.tmpl" . }}
+{{ end }}
+

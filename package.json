@@ -1,0 +1,23 @@
+{
+  "name": "sukhamerida-id",
+  "version": "0.1.0",
+  "description": "Accounts authentication website.",
+  "main": "",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sukhamerida/id.git"
+  },
+  "author": "Sukha Mérida <info@sukahmerida.com> (https://sukhamerida.com)",
+  "license": "CC-BY-4.0",
+  "bugs": {
+    "url": "https://github.com/sukhamerida/id/issues"
+  },
+  "homepage": "https://id.sukhamerida.com",
+  "dependencies": {
+    "@ryangjchandler/spruce": "^2.6.3",
+    "alpinejs": "^2.8.1",
+    "bulma": "^0.9.1"
+  },
+  "devDependencies": {}
+}

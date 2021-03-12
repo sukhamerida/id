@@ -1,0 +1,13 @@
+{{ $page := .Site.GetPage "/privacy" }}
+
+<article class="privacy-alert message is-radiusless is-small"
+         x-data="privacyState('privacy-alert')" x-show="!agreed">
+  <div class="message-header is-radiusless">
+    <p>{{ $page.Title }}</p>
+    <button class="delete" aria-label="delete" @click="agree"></button>
+  </div>
+
+  <div class="message-body">
+    {{ $page.Content }}
+  </div>
+</article>

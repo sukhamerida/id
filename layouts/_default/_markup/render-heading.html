@@ -1,0 +1,6 @@
+<h{{ .Level }} id="{{ .Anchor | safeURL }}">
+  <a href="#{{ .Anchor | safeURL }}" class="heading-anchor">
+    {{ markdownify .Text }}
+  </a>
+</h{{ .Level }}>
+
