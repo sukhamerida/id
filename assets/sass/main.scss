@@ -1,9 +1,11 @@
 @charset "utf-8";
 
+$body-background-color: #fff;
 $body-family: sans-serif;
+
 $primary: #a3bf76;
 $link: #556854;
-$body-background-color: #fff;
+$success: #a3bf76;
 
 @import "bulma/sass/utilities/_all.sass";
 @import "bulma/sass/base/_all.sass";
